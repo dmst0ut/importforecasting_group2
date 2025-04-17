@@ -1,0 +1,18 @@
+
+--- DDL
+--- 2025-04-10
+
+CREATE TABLE IF NOT EXISTS series (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR,
+    desc VARCHAR
+);
+
+CREATE TABLE IF NOT EXISTS economic_indicators (
+    id INTEGER PRIMARY KEY,
+    date VARCHAR,
+    series INTEGER,  -- Declare the column
+    value DOUBLE,
+    FOREIGN KEY (series) REFERENCES series(id)  -- Then apply the constraint
+);
+
