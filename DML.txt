@@ -1,0 +1,22 @@
+--- SQL Command used for DML
+--- 2025-04-15
+--- FOR REFERENCE ONLY, NOT TO BE USED INDEPENDENTLY
+
+
+--- Update with current data
+SELECT id FROM series WHERE name = ? AND desc = ?;
+
+SELECT 1 FROM economic_indicators WHERE date = ? AND series = ? LIMIT 1;
+
+INSERT INTO economic_indicators (date, series, value)
+VALUES (?, ?, ?);
+
+
+--- Retrieve from DB
+SELECT id, name, desc FROM series;
+
+SELECT ei.date, ei.series, ei.value
+FROM economic_indicators ei
+JOIN series s ON ei.series = s.id
+ORDER BY ei.date, ei.series;
+
